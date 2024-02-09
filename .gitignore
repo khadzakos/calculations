@@ -1,0 +1,10 @@
+# build
+/prototype
+
+# IDE
+/.vs/
+/.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
