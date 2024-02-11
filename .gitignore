@@ -4,7 +4,3 @@
 # IDE
 /.vs/
 /.vscode/
-
-# macOS
-.DS_Store
-.AppleDouble
