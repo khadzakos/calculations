@@ -23,7 +23,7 @@ class BigNumber {
 
         friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
         friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
-        friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
+        // friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator/ (const BigNumber &a, const BigNumber &b);
 
         // friend const BigNumber operator== (const BigNumber &a, const BigNumber &b);
