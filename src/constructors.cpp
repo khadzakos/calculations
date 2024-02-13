@@ -10,10 +10,10 @@ BigNumber::BigNumber() {
 BigNumber::BigNumber (const std::string &str_number) {
     int i = 0;
     if (str_number[0] == '-') {
-        is_negative = false;
+        is_negative = true;
         i++;
     } else {
-        is_negative = true;
+        is_negative = false;
     }
 
     for (; i < (int)str_number.size(); i++) {
@@ -23,16 +23,17 @@ BigNumber::BigNumber (const std::string &str_number) {
     }
     
     for (int j = i - 1; j >= 0; j--) {
-        integer_part.push_back(str_number[j] - '0');
+        integer_part.push_back(static_cast<int>(str_number[j] - '0'));
     }
-    while (integer_size && integer_part.back() == '0') {
+    while (integer_part.size() && integer_part.back() == 0) {
         integer_part.pop_back();
     }
 
     for (i++; i < str_number.size(); i++) {
-        real_part.push_back(str_number[i] - '0');
+        real_part.push_back(static_cast<int>(str_number[i] - '0'));
     }
-    while (real_size && real_part.back() == '0') {
+
+    while (real_part.size() && real_part.back() == 0) {
         real_part.pop_back();
     }
 
