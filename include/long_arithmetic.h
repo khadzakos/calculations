@@ -23,15 +23,17 @@ class BigNumber {
 
         friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
         friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
+        friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator/ (const BigNumber &a, const BigNumber &b);
 
-        // friend const BigNumber operator== (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator!= (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator< (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator> (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator<= (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator>= (const BigNumber &a, const BigNumber &b);
+        friend const bool operator== (const BigNumber &a, const BigNumber &b);
+        friend const bool operator!= (const BigNumber &a, const BigNumber &b);
+        friend const bool operator< (const BigNumber &a, const BigNumber &b);
+        friend const bool operator> (const BigNumber &a, const BigNumber &b);
+        friend const bool operator<= (const BigNumber &a, const BigNumber &b);
+        friend const bool operator>= (const BigNumber &a, const BigNumber &b);
+
+        const bool is_zero ();
 
 
     private:
