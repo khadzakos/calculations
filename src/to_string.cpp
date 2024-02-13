@@ -3,6 +3,10 @@
 const std::string BigNumber::to_string() {
     std::string str_number;
     
+    if (is_negative) {
+        str_number += '-';
+    }
+
     //integer part cast
     for (int i = integer_size - 1; i >= 0; i--) {
         str_number += static_cast<char>(integer_part[i] + '0');
