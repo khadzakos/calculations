@@ -25,10 +25,17 @@ BigNumber::BigNumber (const std::string &str_number) {
     for (int j = i - 1; j >= 0; j--) {
         integer_part.push_back(str_number[j] - '0');
     }
+    while (integer_size && integer_part.back() == '0') {
+        integer_part.pop_back();
+    }
 
     for (i++; i < str_number.size(); i++) {
         real_part.push_back(str_number[i] - '0');
     }
+    while (real_size && real_part.back() == '0') {
+        real_part.pop_back();
+    }
+
 
     real_size = real_part.size();
     integer_size = integer_part.size();
