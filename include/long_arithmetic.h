@@ -6,10 +6,8 @@
 
 class BigNumber {
     public:
-        BigNumber ();
-        BigNumber (const std::string &str_number);
-
-        const std::string to_string();
+        BigNumber();
+        BigNumber(const std::string &str_number);
 
         // friend std::istream& operator>> (std::istream &in, BigNumber &number) {
         //     std::string str_number;
@@ -21,24 +19,27 @@ class BigNumber {
         // friend std::ostream& operator<< (std::ostream &out, BigNumber &number) {
         // }
 
-        friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
-        friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
-        friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
+        // friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
+        // friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
+        // friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator/ (const BigNumber &a, const BigNumber &b);
 
         friend const bool operator== (const BigNumber &a, const BigNumber &b);
         friend const bool operator!= (const BigNumber &a, const BigNumber &b);
-        friend const bool operator< (const BigNumber &a, const BigNumber &b);
-        friend const bool operator> (const BigNumber &a, const BigNumber &b);
-        friend const bool operator<= (const BigNumber &a, const BigNumber &b);
-        friend const bool operator>= (const BigNumber &a, const BigNumber &b);
+        // friend const bool operator< (const BigNumber &a, const BigNumber &b);
+        // friend const bool operator> (const BigNumber &a, const BigNumber &b);
+        // friend const bool operator<= (const BigNumber &a, const BigNumber &b);
+        // friend const bool operator>= (const BigNumber &a, const BigNumber &b);
 
-        const bool is_zero ();
+        const std::string to_string();
 
 
     private:
         bool is_negative;
-        std::vector<short> integer_part;
-        std::vector<short> real_part;
-        int integer_size, real_size, number_size;
+        std::string number;
+        int point_index;
+        int number_size;
+
+        const bool is_zero();
+        const std::string remove_leading_zeros(const std::string &str);
 };
