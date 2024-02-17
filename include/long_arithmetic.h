@@ -5,10 +5,12 @@
 #include <string>
 #include <algorithm>
 
+const int MAX_FRACTIONAL_SIZE = 255;
+
 class BigNumber {
     public:
-        BigNumber();
-        BigNumber(const std::string &str_number);
+        explicit BigNumber();
+        explicit BigNumber(const std::string &str_number);
 
         // friend std::istream& operator>> (std::istream &in, BigNumber &number) {
         //     std::string str_number;
@@ -22,8 +24,8 @@ class BigNumber {
 
         friend const BigNumber operator- (const BigNumber &a);
 
-        // friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
+        friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
+        friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator/ (const BigNumber &a, const BigNumber &b);
 
