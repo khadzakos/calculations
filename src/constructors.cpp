@@ -1,7 +1,5 @@
 #include <long_arithmetic.h>
 
-const int MAX_FRACTIONAL_SIZE = 255;
-
 BigNumber::BigNumber() {
     is_negative = true;
     point_index = 0;
