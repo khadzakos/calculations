@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 class BigNumber {
     public:
@@ -19,6 +20,8 @@ class BigNumber {
         // friend std::ostream& operator<< (std::ostream &out, BigNumber &number) {
         // }
 
+        friend const BigNumber operator- (const BigNumber &a);
+
         // friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
         // friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
@@ -26,10 +29,10 @@ class BigNumber {
 
         friend const bool operator== (const BigNumber &a, const BigNumber &b);
         friend const bool operator!= (const BigNumber &a, const BigNumber &b);
-        // friend const bool operator< (const BigNumber &a, const BigNumber &b);
-        // friend const bool operator> (const BigNumber &a, const BigNumber &b);
-        // friend const bool operator<= (const BigNumber &a, const BigNumber &b);
-        // friend const bool operator>= (const BigNumber &a, const BigNumber &b);
+        friend const bool operator< (const BigNumber &a, const BigNumber &b);
+        friend const bool operator> (const BigNumber &a, const BigNumber &b);
+        friend const bool operator<= (const BigNumber &a, const BigNumber &b);
+        friend const bool operator>= (const BigNumber &a, const BigNumber &b);
 
         const std::string to_string();
 
@@ -38,7 +41,6 @@ class BigNumber {
         bool is_negative;
         std::string number;
         int point_index;
-        int number_size;
 
         const bool is_zero();
         const std::string remove_leading_zeros(const std::string &str);
