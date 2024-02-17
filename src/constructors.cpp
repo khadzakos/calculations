@@ -1,30 +1,42 @@
 #include <long_arithmetic.h>
 
-const int MAX_FRACTIONAL_SIZE = 250;
+const int MAX_FRACTIONAL_SIZE = 255;
 
 BigNumber::BigNumber() {
     is_negative = true;
-    number_size = 0;
     point_index = 0;
 }
 
 BigNumber::BigNumber (const std::string &str) {
     is_negative = str[0] == '-';
     number = remove_leading_zeros(str.substr(is_negative));
-    reverse(number.begin(), number.end());
-    number = remove_leading_zeros(number.substr(0));
     point_index = number.find('.');
-    number_size = number.size();
+    if (point_index == std::string::npos) {
+        point_index = number.size();
+    }
+    
+    int pos = point_index;
+    for (int cnt = 0; cnt < MAX_FRACTIONAL_SIZE; pos++, cnt++) {
+        if (pos == number.size()) {
+            number.push_back('0');
+        }
+    }
+    while (number.size() > pos) {
+        number.pop_back();
+    }
+    
+
+    reverse(number.begin(), number.end());
+    point_index = number.find('.');
 
     if (point_index == std::string::npos) {
         point_index = number.size();
     }
     
-    if (point_index == number_size - 1) {
+    if (point_index + 1 == number.size()) {
         number.push_back('0');
     }
     number.erase(point_index, 1);
-    number_size = number.size();
 
     if (is_negative && is_zero()) {
         is_negative = false;
