@@ -1,25 +1,7 @@
 #include <long_arithmetic.h>
 
 const bool BigNumber::is_zero () {
-    return number_size == 1 && number[0] == 0;
-}
-
-const std::string BigNumber::to_string() {
-    std::string str;
-    for (int i = 0; i < point_index; i++) {
-        str.push_back(number[i]);
-    }
-    if (point_index > 0) {
-        str.push_back('.');
-    }
-    for (int i = point_index; i < number_size; i++) {
-        str.push_back(number[i]);
-    }
-    reverse(str.begin(), str.end());
-    if (is_negative) {
-        str.insert(str.begin(), '-');
-    }
-    return str;
+    return std::count(number.begin(), number.end(), '0') == number.size();
 }
 
 const std::string BigNumber::remove_leading_zeros(const std::string &str) {
@@ -32,4 +14,31 @@ const std::string BigNumber::remove_leading_zeros(const std::string &str) {
     }
     return str.substr(i);
 }
+
+const std::string BigNumber::to_string() {
+    std::string str;
+
+    int i = 0;
+    while (i < point_index && number[i] == '0') {
+        i++;
+    }
+    point_index -= i;
+    number = number.substr(i);
+
+    for (int i = 0; i < point_index; i++) {
+        str.push_back(number[i]);
+    }
+    if (point_index > 0) {
+        str.push_back('.');
+    }
+    for (int i = point_index; i < number.size(); i++) {
+        str.push_back(number[i]);
+    }
+    reverse(str.begin(), str.end());
+    if (is_negative) {
+        str.insert(str.begin(), '-');
+    }
+    return str;
+}
+
 
