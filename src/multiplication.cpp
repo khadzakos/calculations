@@ -23,22 +23,11 @@ const BigNumber operator*(const BigNumber &a, const BigNumber &b) {
         result.number.pop_back();
     }
 
-    for (int i = 0; i < result.number.size(); i++) {
-        if (i == result.point_index)
-            std::cout << '.';
-        std::cout << result.number[i];
-    }
     std::cout << std::endl;
     int pos = result.point_index;
     for (int cnt = 0; cnt < MAX_FRACTIONAL_SIZE; cnt++, pos--);
     result.number = result.number.substr(pos);
     result.point_index = a.point_index;
-    for (int i = 0; i < result.number.size(); i++) {
-        if (i == result.point_index)
-            std::cout << '.';
-        std::cout << result.number[i];
-    }
-    std::cout << std::endl;
 
     return result;
 }
