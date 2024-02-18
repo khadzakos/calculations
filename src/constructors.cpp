@@ -10,6 +10,7 @@ BigNumber::BigNumber (const std::string &str) {
     number = remove_leading_zeros(str.substr(is_negative));
     point_index = number.find('.');
     if (point_index == std::string::npos) {
+        number.push_back('.');
         point_index = number.size();
     }
     
