@@ -26,8 +26,8 @@ class BigNumber {
 
         friend const BigNumber operator+ (const BigNumber &a, const BigNumber &b);
         friend const BigNumber operator- (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
-        // friend const BigNumber operator/ (const BigNumber &a, const BigNumber &b);
+        friend const BigNumber operator* (const BigNumber &a, const BigNumber &b);
+        friend const BigNumber operator/ (const BigNumber &a, const BigNumber &b);
 
         friend const bool operator== (const BigNumber &a, const BigNumber &b);
         friend const bool operator!= (const BigNumber &a, const BigNumber &b);
@@ -46,4 +46,5 @@ class BigNumber {
 
         const bool is_zero();
         const std::string remove_leading_zeros(const std::string &str);
+
 };
