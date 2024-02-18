@@ -23,7 +23,6 @@ const BigNumber operator*(const BigNumber &a, const BigNumber &b) {
         result.number.pop_back();
     }
 
-    std::cout << std::endl;
     int pos = result.point_index;
     for (int cnt = 0; cnt < MAX_FRACTIONAL_SIZE; cnt++, pos--);
     result.number = result.number.substr(pos);
