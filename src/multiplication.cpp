@@ -26,7 +26,7 @@ const BigNumber operator*(const BigNumber &a, const BigNumber &b) {
     int pos = result.point_index;
     for (int cnt = 0; cnt < MAX_FRACTIONAL_SIZE; cnt++, pos--);
     result.number = result.number.substr(pos);
-    result.point_index = a.point_index;
+    result.point_index = MAX_FRACTIONAL_SIZE;
 
     return result;
 }
