@@ -1,6 +1,6 @@
 #include <long_arithmetic.h>
 
-const BigNumber operator+ (const BigNumber &a, const BigNumber &b) {
+BigNumber operator+ (const BigNumber &a, const BigNumber &b) {
     if (a.is_negative && b.is_negative) {
         return -(-a + -b);
     }

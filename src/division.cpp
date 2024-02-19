@@ -1,6 +1,6 @@
 #include <long_arithmetic.h>
 
-const BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
+BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
     BigNumber copy_a = a;
     BigNumber copy_b = b;
     copy_a.point_index = 0;

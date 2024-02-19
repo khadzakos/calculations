@@ -1,6 +1,6 @@
 #include <long_arithmetic.h>
 
-const BigNumber operator*(const BigNumber &a, const BigNumber &b) {
+BigNumber operator*(const BigNumber &a, const BigNumber &b) {
     BigNumber result;
     result.is_negative = a.is_negative ^ b.is_negative;
     result.point_index = a.point_index + b.point_index;
