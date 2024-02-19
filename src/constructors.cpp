@@ -1,7 +1,7 @@
 #include <long_arithmetic.h>
 
 BigNumber::BigNumber() {
-    is_negative = true;
+    is_negative = false;
     point_index = 0;
 }
 
