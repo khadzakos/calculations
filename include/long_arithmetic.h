@@ -4,23 +4,15 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
+
 
 const int MAX_FRACTIONAL_SIZE = 255;
 
 class BigNumber {
     public:
         explicit BigNumber();
-        explicit BigNumber(const std::string &str_number);
-
-        // friend std::istream& operator>> (std::istream &in, BigNumber &number) {
-        //     std::string str_number;
-        //     in >> str_number;
-        //     number = BigNumber(str_number);
-        //     return in;
-        // }
-
-        // friend std::ostream& operator<< (std::ostream &out, BigNumber &number) {
-        // }
+        explicit BigNumber(const std::string &str_number, bool flag = true);
 
         friend const BigNumber operator- (const BigNumber &a);
 
@@ -45,6 +37,6 @@ class BigNumber {
         int point_index;
 
         const bool is_zero();
-        const std::string remove_leading_zeros(const std::string &str);
+        void remove_leading_zeros();
 
 };
