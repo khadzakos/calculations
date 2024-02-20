@@ -10,7 +10,7 @@ BigNumber operator+ (const BigNumber &a, const BigNumber &b) {
     if (b.is_negative) {
         return a - (-b);
     }
-    if (a.number.size() < b.number.size()) {
+    if (a < b) {
         return b + a;
     }
     BigNumber result;
