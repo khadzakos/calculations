@@ -23,11 +23,9 @@ int main() {
     c = a * b;
     std::cout << "c = a * b: " << c.to_string() << std::endl;
 
-    a = BigNumber("0.0000000000000123");
-    b = BigNumber("0.0000000000000123");
-    c = b / a;
+    a = BigNumber("1.0000123");
+    b = BigNumber("0.000123");
+    c = a / b;
     std::cout << "c = a / b: " << c.to_string() << std::endl;
-    
-    
     return 0;
 }
