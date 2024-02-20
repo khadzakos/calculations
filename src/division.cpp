@@ -9,6 +9,7 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
     copy_b.is_negative = false;
     copy_a.remove_leading_zeros();
     copy_b.remove_leading_zeros();
+    int diff = std::max(0, static_cast<int>(copy_a.number.size() - copy_b.number.size()));
 
     if (copy_b.is_zero()) {
         throw std::runtime_error("Division by zero");
@@ -17,18 +18,20 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
         return BigNumber("0");
     }
     BigNumber result;
-    result.is_negative = copy_a.is_negative ^ copy_b.is_negative;
+    result.is_negative = a.is_negative ^ b.is_negative;
     
+
     while (copy_a >= copy_b) {
         std::string temp_str;
         while (!copy_a.number.empty() && temp_str.size() < copy_b.number.size()) {
             temp_str.push_back(copy_a.number.back());
             copy_a.number.pop_back();
         }
-
+        
         BigNumber temp(temp_str, false);
         if (temp < copy_b) {
             if (copy_a.number.empty()) {
+                result.number.push_back('0');
                 break;
             } else {
                 temp_str.push_back(copy_a.number.back());
@@ -47,6 +50,7 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
             }
         }
         result.number.push_back(digit + '0');
+        diff--;
 
         temp.remove_leading_zeros();
         if (temp.is_zero()) {
@@ -59,9 +63,19 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
         copy_a.number += temp.number;
     }
 
+    while (diff > 0) {
+        result.number.push_back('0');
+        diff--;
+    }
+    reverse(result.number.begin(), result.number.end());
+    while (!result.number.empty() && result.number.back() == '0') {
+        result.number.pop_back();
+    }
+    reverse(result.number.begin(), result.number.end());
     if (result.number.empty()) {
         result.number.push_back('0');
-    }
+    } 
+
     result.point_index = result.number.size();
     int after_point = 0;
     while (after_point < MAX_FRACTIONAL_SIZE) {
@@ -109,14 +123,12 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
             }
         }
         
-        if (digit >= 10) {
-            std::cout << "after_point: " << after_point << std::endl;
-        }
         assert(digit < 10); 
         result.number.push_back(digit + '0');
         after_point++;
         copy_a.remove_leading_zeros();
     }
+
 
     reverse(result.number.begin(), result.number.end());
     result.point_index = result.number.size() - result.point_index;
