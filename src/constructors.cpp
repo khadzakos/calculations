@@ -22,6 +22,8 @@ BigNumber::BigNumber (const std::string &str, bool flag) {
         if (point_index == std::string::npos) {
             number.push_back('.');
             point_index = number.size();
+        } else {
+            point_index++;
         }
         
         int pos = point_index;
