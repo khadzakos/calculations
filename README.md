@@ -6,10 +6,8 @@
 Автор: Хадзакос Николай
 
 # Результаты
+### Результаты тестирования
+<img width="619" alt="Screenshot 2024-02-21 at 02 39 44" src="https://github.com/khadzakos/calculations/assets/48355066/75f5c012-fa1d-4fe7-9f61-7feeb03c2f04">
+
 ### Вычисление числа Пи и скорость вычисления:
 <img width="962" alt="Screenshot 2024-02-19 at 22 19 17" src="https://github.com/khadzakos/calculations/assets/48355066/cbc962ae-0f7f-4f75-befc-2e647ca4c0bf">
-
-#### В текстовом формате:
-  $\pi:$ 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
-  
-  Time: 1162ms
