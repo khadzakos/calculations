@@ -19,8 +19,9 @@ BigNumber operator*(const BigNumber &a, const BigNumber &b) {
         }
     }
 
-    while (result.number.size() > result.point_index && result.number.back() == '0') {
-        result.number.pop_back();
+    result.remove_leading_zeros();
+    if (result.point_index == result.number.size()) {
+        result.number.push_back('0');
     }
 
     int pos = result.point_index;
