@@ -1,7 +1,7 @@
 #include <long_arithmetic.h>
 
 BigNumber operator*(const BigNumber &a, const BigNumber &b) {
-    BigNumber result;
+    BigNumber result(a.MAX_FRACTIONAL_SIZE);
     result.is_negative = a.is_negative ^ b.is_negative;
     result.point_index = a.point_index + b.point_index;
     result.number.assign(a.number.size() + b.number.size(), '0');
@@ -25,9 +25,9 @@ BigNumber operator*(const BigNumber &a, const BigNumber &b) {
     }
 
     int pos = result.point_index;
-    for (int cnt = 0; cnt < MAX_FRACTIONAL_SIZE; cnt++, pos--);
+    for (int cnt = 0; cnt < result.MAX_FRACTIONAL_SIZE; cnt++, pos--);
     result.number = result.number.substr(pos);
-    result.point_index = MAX_FRACTIONAL_SIZE;
+    result.point_index = result.MAX_FRACTIONAL_SIZE;
 
     return result;
 }

@@ -13,7 +13,7 @@ BigNumber operator+ (const BigNumber &a, const BigNumber &b) {
     if (a < b) {
         return b + a;
     }
-    BigNumber result;
+    BigNumber result(a.MAX_FRACTIONAL_SIZE);
     result.is_negative = a.is_negative;
     result.point_index = std::max(a.point_index, b.point_index);
 

@@ -5,7 +5,14 @@ BigNumber::BigNumber() {
     point_index = 0;
 }
 
-BigNumber::BigNumber (const std::string &str, bool flag) {
+BigNumber::BigNumber (const int &precision) {
+    MAX_FRACTIONAL_SIZE = precision;
+    is_negative = false;
+    point_index = 0;
+}
+
+BigNumber::BigNumber (const std::string &str, int precision, bool flag) {
+    MAX_FRACTIONAL_SIZE = precision;
     is_negative = str[0] == '-';
 
     int i = is_negative;

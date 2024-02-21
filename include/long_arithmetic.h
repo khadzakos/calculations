@@ -7,13 +7,11 @@
 #include <algorithm>
 #include <cassert>
 
-
-const int MAX_FRACTIONAL_SIZE = 200;
-
 class BigNumber {
     public:
         explicit BigNumber();
-        explicit BigNumber(const std::string &str_number, bool flag = true);
+        explicit BigNumber(const int &precision);
+        explicit BigNumber(const std::string &str_number, int precision = 200, bool flag = true);
 
         friend BigNumber operator- (const BigNumber &a);
 
@@ -43,6 +41,8 @@ class BigNumber {
 
         const bool is_zero();
         void remove_leading_zeros();
+
+        int MAX_FRACTIONAL_SIZE;
 };
 
 BigNumber operator "" _f(const char *s);

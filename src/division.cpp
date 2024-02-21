@@ -17,7 +17,7 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
     if (copy_a.is_zero()) {
         return BigNumber("0");
     }
-    BigNumber result;
+    BigNumber result(a.MAX_FRACTIONAL_SIZE);
     result.is_negative = a.is_negative ^ b.is_negative;
     
 
@@ -78,7 +78,7 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
 
     result.point_index = result.number.size();
     int after_point = 0;
-    while (after_point < MAX_FRACTIONAL_SIZE) {
+    while (after_point < result.MAX_FRACTIONAL_SIZE) {
         if (copy_a.number.empty()) {
             result.number.push_back('0');
             after_point++;
@@ -91,13 +91,13 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
             if (flag) {
                 result.number.push_back('0');
                 after_point++;
-                if (after_point >= MAX_FRACTIONAL_SIZE) {
+                if (after_point >= result.MAX_FRACTIONAL_SIZE) {
                     break;
                 }
             }
             flag = 1;
         }
-        if (after_point >= MAX_FRACTIONAL_SIZE) {
+        if (after_point >= result.MAX_FRACTIONAL_SIZE) {
             break;
         } 
         
@@ -109,7 +109,7 @@ BigNumber operator/ (const BigNumber &a, const BigNumber &b) {
             }
             flag = 1;
         }
-        if (after_point >= MAX_FRACTIONAL_SIZE) {
+        if (after_point >= result.MAX_FRACTIONAL_SIZE) {
             break;
         }
 
