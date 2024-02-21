@@ -3,11 +3,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
 #include <algorithm>
 #include <cassert>
 
 
-const int MAX_FRACTIONAL_SIZE = 105;
+const int MAX_FRACTIONAL_SIZE = 200;
 
 class BigNumber {
     public:
