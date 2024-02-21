@@ -11,7 +11,7 @@ class BigNumber {
     public:
         explicit BigNumber();
         explicit BigNumber(const int &precision);
-        explicit BigNumber(const std::string &str_number, int precision = 200, bool flag = true);
+        explicit BigNumber(const std::string &str_number, const int &precision = 200, bool flag = true);
 
         friend BigNumber operator- (const BigNumber &a);
 

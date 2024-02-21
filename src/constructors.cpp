@@ -11,7 +11,7 @@ BigNumber::BigNumber (const int &precision) {
     point_index = 0;
 }
 
-BigNumber::BigNumber (const std::string &str, int precision, bool flag) {
+BigNumber::BigNumber (const std::string &str, const int &precision, bool flag) {
     MAX_FRACTIONAL_SIZE = precision;
     is_negative = str[0] == '-';
 
