@@ -43,3 +43,5 @@ class BigNumber {
         const bool is_zero();
         void remove_leading_zeros();
 };
+
+BigNumber operator "" _f(const char *s);
